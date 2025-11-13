@@ -226,15 +226,16 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1.5rem 5%;
+  z-index: 1000;
+  padding: 0.5rem 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  z-index: 1000;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
+  height: 70px; /* Fixed height for the navbar */
 }
 
 .navbar.scrolled {
@@ -256,19 +257,18 @@ img {
 }
 
 .logo {
-  font-size: 1.8rem;
+  font-size: 1.5rem; /* Reduced from 1.8rem */
   font-weight: 800;
   background: var(--gradient-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: none;
-  animation: float 3s ease-in-out infinite;
   transition: all 0.3s ease;
   display: inline-block;
+  line-height: 1; /* Ensure consistent height */
 }
 
 .logo:hover {
-  animation: none;
   transform: scale(1.05);
 }
 
@@ -309,7 +309,7 @@ img {
 /* Hero Section */
 .hero {
   /* margin-top; */
-  min-height: 100vh;
+  /* min-height: 100vh;
   display: flex;
   align-items: center;
   position: relative;
@@ -318,7 +318,22 @@ img {
   background: linear-gradient(-45deg, #0d1b4c, #1a237e, #0d47a1, #1976d2, #2196f3, #64b5f6);
   background-size: 400% 400%;
   animation: gradientBG 12s ease infinite;
-  z-index: 1;
+  z-index: 1; */
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 50px 5% 0; /* Further reduced top padding to match smaller navbar */
+  margin-top: 0;
+  background: linear-gradient(-45deg, #0d1b4c, #1a237e, #0d47a1, #1976d2, #2196f3, #64b5f6);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  z-index: 0; /* Lower z-index than navbar */
 }
 
 @keyframes gradientBG {
@@ -347,10 +362,13 @@ img {
 }
 
 .hero-content {
+  flex: 1;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 4rem;
+  padding-top: 2rem; /* Add some space at the top of the content */
   position: relative;
   z-index: 1;
   max-width: 1200px;
@@ -731,24 +749,28 @@ img {
 }
 
 .scroll-down {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative; /* Changed from absolute */
+  margin-top: 0.1rem;
+  padding-bottom: 0.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--text-light);
+  color: white;
   font-size: 0.9rem;
+  margin-left: 50%;
   animation: bounce 2s infinite;
   text-decoration: none;
-  z-index: 10;
+}
+
+
+.scroll-down {
+  color: white; /* Added white text color */
 }
 
 .scroll-down i {
-  margin-top: 0.5rem;
+  margin-top: 0.8rem; /* Increased from 0.5rem */
   font-size: 1.2rem;
-  color: var(--primary);
+  color: white; /* Changed from var(--primary) to white */
 }
 
 @keyframes bounce {
@@ -1749,7 +1771,7 @@ footer p {
   .hero-content {
     flex-direction: column;
     text-align: center;
-    padding: 7rem 0 5rem;
+    padding: 4rem 0 3rem; /* Reduced from 7rem 0 5rem */
   }
   
   .hero-text {
@@ -1787,6 +1809,20 @@ footer p {
 @media (max-width: 768px) {
   html {
     font-size: 15px;
+    scroll-padding-top: 60px; /* Reduced from 80px */
+  }
+  
+  .navbar {
+    padding: 0.3rem 5%;
+    height: 60px; /* Slightly smaller height on mobile */
+  }
+  
+  .navbar.scrolled {
+    padding: 0.2rem 5%;
+  }
+  
+  .logo {
+    font-size: 1.3rem; /* Smaller logo on mobile */
   }
   
   .portfolio-grid {
@@ -1814,7 +1850,7 @@ footer p {
   }
   
   .navbar {
-    padding: 1rem 5%;
+    padding: 0.6rem 5%;
   }
   
   .nav-links {
@@ -1901,7 +1937,7 @@ footer p {
 
 @media (max-width: 576px) {
   .hero {
-    padding-top: 5rem;
+    padding-top: 3.5rem; /* Reduced from 5rem */
   }
   
   .hero-text h1 {
