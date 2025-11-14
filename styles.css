@@ -1821,6 +1821,7 @@ footer p {
     margin-top: 2rem;
     margin-right: 0;
     transform: translateY(1.5rem);
+    aspect-ratio: 1/1.5;
   }
   
   .hero-buttons {
@@ -2554,3 +2555,8 @@ footer p {
 .footer-links a{
     color: var(--primary-dark);
 }
+
+/* 
+.profile-test{
+    height: 75vh;
+} */
